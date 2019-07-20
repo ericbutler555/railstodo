@@ -1,0 +1,126 @@
+<div class="bg-info text-white">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col">
+        <%= form_for @todo, html: {:class => "form-row"} do |f| %>
+          <div class="form-group col-12">
+            <%= f.label :body, class: "h4 mb-3 font-weight-bold" do %>Eric&rsquo;s To-Do List<% end %>
+            <%= f.text_area :body, class: "form-control", placeholder: "Add another to-do...", autofocus: true %>
+          </div>
+          <div class="form-group col-6 mb-0">
+            <div class="input-group">
+              <div class="input-group-prepend d-none d-sm-flex">
+                <%= f.label :category_id, "Status:", class: "input-group-text" %>
+              </div>
+              <%= collection_select(:todo, :category_id, Category.all, :id, :name, {},{:class => "form-control"}) %>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <%= f.submit "Save", class: "btn btn-block btn-warning" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="row my-5">
+    <div class="col">
+      <% if @new.any? %>
+        <h2 class="h4 mb-3 font-weight-bold">
+          In-Tray
+          <sup class="badge badge-super"><%= @new.count %></sup>
+        </h2>
+        <ul class="list-group shadow">
+          <% @new.each do |item| %>
+            <%= render partial: "todo-item", locals: {item: item} %>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row my-5">
+    <div class="col">
+      <% if @do.any? %>
+        <h2 class="h4 mb-3 font-weight-bold">
+          Do Now
+          <sup class="badge badge-super"><%= @do.count %></sup>
+        </h2>
+        </h2>
+        <ul class="list-group shadow">
+          <% @do.each do |item| %>
+            <%= render partial: "todo-item", locals: {item: item} %>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row my-5">
+    <div class="col">
+      <% if @can.any? %>
+        <h2 class="h4 mb-3 font-weight-bold">
+          Can Pick Up Anytime
+          <sup class="badge badge-super"><%= @can.count %></sup>
+        </h2>
+        <ul class="list-group shadow">
+          <% @can.each do |item| %>
+            <%= render partial: "todo-item", locals: {item: item} %>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row my-5">
+    <div class="col">
+      <% if @hold.any? %>
+        <h2 class="h4 mb-3 font-weight-bold">
+          Temporary Hold
+          <sup class="badge badge-super"><%= @hold.count %></sup>
+        </h2>
+        <ul class="list-group shadow">
+          <% @hold.each do |item| %>
+            <%= render partial: "todo-item", locals: {item: item} %>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row my-5">
+    <div class="col">
+      <% if @back.any? %>
+        <h2 class="h4 mb-3 font-weight-bold">
+          Back Burner
+          <sup class="badge badge-super"><%= @back.count %></sup>
+        </h2>
+        <ul class="list-group shadow">
+          <% @back.each do |item| %>
+            <%= render partial: "todo-item", locals: {item: item} %>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row my-5">
+    <div class="col">
+      <% if @done.any? %>
+        <h2 class="h4 mb-3 font-weight-bold">
+          Done
+          <sup class="badge badge-super"><%= @done.count %></sup>
+        </h2>
+        <ul class="list-group shadow">
+          <% @done.each do |item| %>
+            <%= render partial: "todo-item", locals: {item: item} %>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+
+</div>

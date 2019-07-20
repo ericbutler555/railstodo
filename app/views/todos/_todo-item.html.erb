@@ -1,0 +1,36 @@
+<li class="list-group-item">
+
+  <%= button_to done_path(item), method: :patch, class: "btn" do %>
+    <% if item.is_done %>
+      <i class="fas fa-check-circle done" style="color:#28a745"></i>
+    <% else %>
+      <i class="far fa-circle"></i>
+    <% end %>
+  <% end %>
+
+  <%= item.body %>
+
+  <div class="btn-group float-right action-btns">
+    <button class="btn edit-btn" data-toggle="tooltip" data-placement="top" title="Edit">
+      <i class="fas fa-pencil-alt"></i>
+    </button>
+    <%= button_to todo_path(item), method: :delete, class: "btn delete-btn", data: {confirm: "Are you sure?", toggle: "tooltip", placement: "top"}, title: "Delete" do %>
+      <i class="far fa-trash-alt"></i>
+    <% end %>
+  </div>
+
+  <div class="item-editor">
+    <%= form_for item, html: {class: "form-row pt-2"} do |f| %>
+      <div class="col-12 col-md-7 mb-2 mb-md-0">
+        <%= f.text_field :body, class: "form-control" %>
+      </div>
+      <div class="col-6 col-md-3">
+        <%= collection_select(:todo, :category_id, Category.all, :id, :name, {:selected => item.category_id}, {:class => "form-control"}) %>
+      </div>
+      <div class="col-6 col-md-2">
+        <%= f.submit "Update", class: "btn btn-block btn-warning" %>
+      </div>
+    <% end %>
+  </div>
+
+</li>
