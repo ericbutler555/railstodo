@@ -33,16 +33,50 @@ body {
 .action-btns .btn {
   opacity: 0.3;
   transition: opacity 0.3s;
-}
-.action-btns .btn:hover,
-.action-btns .btn:focus {
-  opacity: 1;
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+
+  &.edit-btn {
+    color: #17a2b8;
+  }
+
+  &.delete-btn {
+    color: #dc3545;
+  }
 }
 
-.action-btns .edit-btn {
-  color: #17a2b8;
+.toast-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 10; // stay on top
+  padding: 15px;
 }
 
-.action-btns .delete-btn {
-  color: #dc3545;
+.toast {
+  position: relative;
+  top: 15px; // start low and animate up
+  min-width: 200px;
+  max-width: 100%;
+  animation: fade-in-out 4s 0s 1; // duration delay iterations
+}
+
+.toast-body .close {
+  line-height: 0.75;
+}
+
+.emoji {
+  font-size: 1.5em;
+  line-height: 0;
+  vertical-align: sub;
+  margin-right: 0.25rem;
+}
+
+@keyframes fade-in-out {
+  10% { opacity: 1; top: 0; }
+  90% { opacity: 1; top: 0; }
+  100% { opacity: 0; top: -15px; }
 }

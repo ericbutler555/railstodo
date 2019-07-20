@@ -16,22 +16,26 @@
 
 jQuery(document).ready(function($){
 
-  $('body').on('mouseenter', '.fa-circle', function(){
+  $('.fa-circle').on('mouseenter', function(){
     $(this).addClass('fas fa-check-circle')
       .removeClass('far fa-circle')
       .css('color', '#28a745');
   });
 
-  $('body').on('mouseleave', '.fa-check-circle:not(.done)', function(){
+  $('.fa-check-circle:not(.done)').on('mouseleave', function(){
     $(this).addClass('far fa-circle')
       .removeClass('fas fa-check-circle')
       .attr('style', '');
   });
 
-  $('[data-toggle="tooltip"]').tooltip();
-
-  $('body').on('click', '.edit-btn', function(){
+  $('.edit-btn').on('click', function(){
     $(this).closest('.list-group-item').children('.item-editor').slideToggle(200);
   });
 
-});
+  $('[data-toggle="tooltip"]').tooltip(); // enable Bootstrap tooltips
+
+  $('.toast-body .close').on('click', function(){
+    $(this).closest('.toast').remove();
+  });
+
+}); // end jquery ready

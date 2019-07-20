@@ -13,9 +13,9 @@ class TodosController < ApplicationController
   def create
     @todo = Todo.new(todo_params)
     if @todo.save
-      flash[:notice] = "Saved."
+      flash[:notice] = "<span class='emoji'>👍</span> Saved!"
     else
-      flash[:alert] = "Unable to save"
+      flash[:alert] = "<span class='emoji'>🤔</span> Unable to save."
     end
     redirect_back(fallback_location: root_path)
   end
@@ -23,9 +23,9 @@ class TodosController < ApplicationController
   def update
     @todo = Todo.find(params[:id])
     if @todo.update(todo_params)
-      flash[:notice] = "Updated."
+      flash[:notice] = "<span class='emoji'>👌</span> Updated!"
     else
-      flash[:alert] = "Unable to update"
+      flash[:alert] = "<span class='emoji'>🤔</span> Unable to update."
     end
     redirect_back(fallback_location: root_path)
   end
@@ -33,9 +33,9 @@ class TodosController < ApplicationController
   def destroy
     @todo = Todo.find(params[:id])
     if @todo.destroy
-      flash[:notice] = "Deleted."
+      flash[:notice] = "<span class='emoji'>👋</span> It&rsquo;s gone."
     else
-      flash[:alert] = "Unable to delete"
+      flash[:alert] = "<span class='emoji'>🤔</span> Unable to delete."
     end
     redirect_back(fallback_location: root_path)
   end
@@ -44,6 +44,9 @@ class TodosController < ApplicationController
     @todo = Todo.find(params[:id])
     opposite = !@todo.is_done
     @todo.update(is_done: opposite)
+    if opposite
+      flash[:notice] = "<span class='emoji'>🙌</span> You did it!"
+    end
     redirect_back(fallback_location: root_path)
   end
 
