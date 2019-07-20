@@ -1,24 +1,5 @@
-# README
+# Eric's To-Do List: A Rails App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A relatively simple but fully functional to-do list app built with Ruby on Rails 5.2.3, Postgresql, Bootstrap 4.3.1, and Font Awesome 5.9.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+To get working, you'll need to have Ruby, Bundler and Postgres installed on your machine. In your terminal `bundle install` everything and run `rails db:migrate`. Then `rails s` to launch the web server, and navigate in your internet browser to `http://localhost:3000`.
