@@ -16,16 +16,16 @@
 
 jQuery(document).ready(function($){
 
-  $('.fa-circle').on('mouseenter', function(){
+  $('.done-btn i.undone').on('mouseenter', function(){
     $(this).addClass('fas fa-check-circle')
-      .removeClass('far fa-circle')
-      .css('color', '#28a745');
+           .removeClass('far fa-circle')
+           .css('color', '#28a745');
   });
 
-  $('.fa-check-circle:not(.done)').on('mouseleave', function(){
+  $('.done-btn i.undone').on('mouseleave', function(){
     $(this).addClass('far fa-circle')
-      .removeClass('fas fa-check-circle')
-      .attr('style', '');
+           .removeClass('fas fa-check-circle')
+           .css('color', '');
   });
 
   $('.edit-btn').on('click', function(){

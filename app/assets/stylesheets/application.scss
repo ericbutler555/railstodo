@@ -30,6 +30,10 @@ body {
   display: none; // hide initially
 }
 
+i.done {
+  color: #28a745;
+}
+
 .action-btns .btn {
   opacity: 0.3;
   transition: opacity 0.3s;

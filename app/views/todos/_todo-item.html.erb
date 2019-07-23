@@ -1,10 +1,10 @@
 <li class="list-group-item">
 
-  <%= button_to done_path(item), method: :patch, class: "btn" do %>
+  <%= button_to done_path(item), method: :patch, class: "btn done-btn" do %>
     <% if item.is_done %>
-      <i class="fas fa-check-circle done" style="color:#28a745"></i>
+      <i class="fas fa-check-circle done"></i>
     <% else %>
-      <i class="far fa-circle"></i>
+      <i class="far fa-circle undone"></i>
     <% end %>
   <% end %>
 
