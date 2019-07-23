@@ -8,16 +8,15 @@
     <% end %>
   <% end %>
 
-  <%= item.body %>
+  <span><%= item.body %></span>
 
-  <div class="btn-group float-right action-btns">
-    <button class="btn edit-btn" data-toggle="tooltip" data-placement="top" title="Edit">
-      <i class="fas fa-pencil-alt"></i>
-    </button>
-    <%= button_to todo_path(item), method: :delete, class: "btn delete-btn", data: {confirm: "Are you sure?", toggle: "tooltip", placement: "top"}, title: "Delete" do %>
-      <i class="far fa-trash-alt"></i>
-    <% end %>
-  </div>
+  <button class="btn edit-btn" data-toggle="tooltip" data-placement="top" title="Edit">
+    <i class="fas fa-pencil-alt"></i>
+  </button>
+
+  <%= button_to todo_path(item), method: :delete, class: "btn delete-btn", data: {confirm: "Are you sure?", toggle: "tooltip", placement: "top"}, title: "Delete" do %>
+    <i class="far fa-trash-alt"></i>
+  <% end %>
 
   <div class="item-editor">
     <%= form_for item, html: {class: "form-row pt-2"} do |f| %>

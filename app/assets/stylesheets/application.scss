@@ -22,19 +22,31 @@ body {
   font-size: 50%;
 }
 
+.list-group-item {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  & > span {
+    flex: 1 1 1px; // fit in remaining space
+  }
+}
+
 .button_to {
   display: inline;
 }
 
 .item-editor {
   display: none; // hide initially
+  flex: 0 0 100%; // always be full-width
 }
 
 i.done {
-  color: #28a745;
+  color: #28a745; // green
 }
 
-.action-btns .btn {
+.edit-btn,
+.delete-btn {
   opacity: 0.3;
   transition: opacity 0.3s;
 
@@ -42,14 +54,15 @@ i.done {
   &:focus {
     opacity: 1;
   }
+}
 
-  &.edit-btn {
-    color: #17a2b8;
-  }
+.edit-btn {
+  margin-left: auto; // floats right
+  color: #17a2b8; // blue
+}
 
-  &.delete-btn {
-    color: #dc3545;
-  }
+.delete-btn {
+  color: #dc3545; // red
 }
 
 .toast-container {
