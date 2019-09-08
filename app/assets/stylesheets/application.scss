@@ -41,6 +41,12 @@ body {
   flex: 0 0 100%; // always be full-width
 }
 
+textarea.form-control {
+  @media (min-width: 768px) {
+    height: calc(1.5em + .75rem + 2px); // match bootstrap setting
+  }
+}
+
 i.done {
   color: #28a745; // green
 }
@@ -56,12 +62,12 @@ i.done {
   }
 }
 
-.edit-btn {
-  margin-left: auto; // floats right
+.btn.edit-btn {
+  margin-left: auto; // aligns right
   color: #17a2b8; // blue
 }
 
-.delete-btn {
+.btn.delete-btn {
   color: #dc3545; // red
 }
 

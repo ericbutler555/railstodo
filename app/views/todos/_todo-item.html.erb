@@ -21,7 +21,7 @@
   <div class="item-editor">
     <%= form_for item, html: {class: "form-row pt-2"} do |f| %>
       <div class="col-12 col-md-7 mb-2 mb-md-0">
-        <%= f.text_field :body, class: "form-control" %>
+        <%= f.text_area :body, class: "form-control" %>
       </div>
       <div class="col-6 col-md-3">
         <%= collection_select(:todo, :category_id, Category.all, :id, :name, {:selected => item.category_id}, {:class => "form-control"}) %>
